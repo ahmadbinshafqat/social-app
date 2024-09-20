@@ -25,16 +25,13 @@ This project aims to provide a seamless social networking experience while maint
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [API Documentation](#api-documentation)
 - [Design Choices](#design-choices)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Installation
 
 ### Prerequisites
 
-- Docker and Docker Compose installed on your machine.
+- Docker installed on your machine.
 - Python 3.11 (if running locally without Docker).
 
 ### Steps
@@ -42,19 +39,17 @@ This project aims to provide a seamless social networking experience while maint
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/your-repo.git
-   cd your-repo
+   git clone https://github.com/ahmadbinshafqat/social-app.git
+   cd social-app
    ```
 
-2. Create a `.env` file in the root directory based on the `.env.example` file and fill in your environment variables.
-
-3. Build and start the Docker containers:
+2. Build and start the Docker containers:
 
    ```bash
-   docker-compose up --build
+   docker-compose up
    ```
 
-4. Run migrations:
+3. Run migrations:
 
    If not using Docker:
 
@@ -62,7 +57,7 @@ This project aims to provide a seamless social networking experience while maint
    pip install -r requirements.txt && python manage.py migrate && python manage.py runserver
    ```
 
-5. Access the application at `http://localhost:8000`.
+4. Access the application at `http://localhost:8000`.
 
 ## Usage
 
@@ -122,14 +117,3 @@ Instructions on how to use the application after installation.
 - **Redis**: Integrated for caching purposes, optimizing performance, especially for frequently accessed data.
 - **Docker**: Containerized the application for easy deployment and consistent environment across different machines.
 
-## Contributing
-
-1. Fork the project.
-2. Create a feature branch (`git checkout -b feature-branch`).
-3. Commit your changes (`git commit -m 'Add some feature'`).
-4. Push to the branch (`git push origin feature-branch`).
-5. Open a Pull Request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
