@@ -1,0 +1,312 @@
+{
+	"info": {
+		"_postman_id": "ed2b56ac-1c09-43d0-8115-7155912efb46",
+		"name": "Social Networking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "30366690"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"user1@gmail.com\",\n    \"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/signup/"
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"user1@gmail.com\",\n    \"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/login/"
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI2NzYxMzkyLCJpYXQiOjE3MjY3NTk1OTIsImp0aSI6IjY4OTJkMDk1NjBhMTQ0MzNiZThmNTNhMzhhNTVlNDM4IiwidXNlcl9pZCI6MX0.NukS9p7plIdjiED4fOzJIX5NZqwV_Lws20lb-6x42s0"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcyNjg0NTk5MiwiaWF0IjoxNzI2NzU5NTkyLCJqdGkiOiIwNDEwZGY4M2FiMmY0NzM2Yjc4MmZmZTU2YWY5MjJkNSIsInVzZXJfaWQiOjF9.MEM4J0jwsq5HTsDL5bnQNE4fu9xggJW5kDnHKHeQ13Y\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/logout/"
+					},
+					"response": []
+				},
+				{
+					"name": "refresh token",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcyNjg0MzI0MywiaWF0IjoxNzI2NzU2ODQzLCJqdGkiOiJmMmIxYWNhZTAyNTM0MGY3YjMxMDlkMjJmOWE3ZTdhNCIsInVzZXJfaWQiOjF9.H-fxqNg2Kpt8CyV7GKuogb-x9QRrGhyA3n8xL1IYkz8\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/refresh-token/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Friends",
+			"item": [
+				{
+					"name": "User Seach",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI2NzYyNTM5LCJpYXQiOjE3MjY3NjA3MzksImp0aSI6ImYzZDkwMDJjYTA3ZTRiZTU4NzFmNjZkZWM4MmUwMDFhIiwidXNlcl9pZCI6Mn0.2hBF7GAnLCptVEauWGIWPdMwZEGJ0BZFHNQ1qmZgO8Y"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/users/search?query=user1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"search"
+							],
+							"query": [
+								{
+									"key": "query",
+									"value": "user1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pending Friend Requests",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:8000/friend-request/pending/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Friends",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:8000/friends/list/"
+					},
+					"response": []
+				},
+				{
+					"name": "Send Friend Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/friend-request/send/4/"
+					},
+					"response": []
+				},
+				{
+					"name": "Reject Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/friend-request/reject/18/"
+					},
+					"response": []
+				},
+				{
+					"name": "Accept Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/friend-request/accept/17/"
+					},
+					"response": []
+				},
+				{
+					"name": "Block User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI2NzY5MTI3LCJpYXQiOjE3MjY3NjczMjcsImp0aSI6IjBhN2QwNGE2YjkyZjQ5NThiMmQ3ZjE0YjQ2MTUzNTY2IiwidXNlcl9pZCI6MX0.-Dbbf-D5683oe7l_kqKW_Icj1dkUnMoYlrxrVgn5qiQ"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/user/block/6/"
+					},
+					"response": []
+				},
+				{
+					"name": "Unblock User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI2NzY5MTI3LCJpYXQiOjE3MjY3NjczMjcsImp0aSI6IjBhN2QwNGE2YjkyZjQ5NThiMmQ3ZjE0YjQ2MTUzNTY2IiwidXNlcl9pZCI6MX0.-Dbbf-D5683oe7l_kqKW_Icj1dkUnMoYlrxrVgn5qiQ"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/user/unblock/6/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Log Activities",
+			"item": [
+				{
+					"name": "Get My Activities",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{token}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:8000/activities/"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
